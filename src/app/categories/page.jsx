@@ -64,7 +64,7 @@ const CategoriesPage=()=>{
       fetchCategories()
    }
     return(
-        <section className="mt-8 max-w-lg flex flex-col items-center justify-center">
+        <section className="mt-8 max-w-lg mx-auto flex flex-col items-center justify-center ">
             <UserTabs isAdmin={true}/>
             <form onSubmit={handleSubmit}
             className="mt-8 flex flex-col gap-4 justify-center items-center">
