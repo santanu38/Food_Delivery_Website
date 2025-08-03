@@ -30,7 +30,7 @@ const MenuPage=()=>{
                  <div>
                     <SectionHeader mainheader={cat.name}/>
                  </div>
-                   <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-8 mb-10">
+                   <div className="grid grid-cols-1 p-4 md:grid-cols-3 gap-4 mt-8 mb-10">
                     {menuItems.filter((menu)=>menu.category===cat._id).map((item)=>(
                      <MenuItems {...item} key={item._id}/>
                     ))}

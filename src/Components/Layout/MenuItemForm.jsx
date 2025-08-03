@@ -32,8 +32,8 @@ const MenuItemForm=({menuItem,onSubmit})=>{
         <form className="mt-8 w-full max-w-lg" onSubmit={(e)=>onSubmit(e,
             {image,name:menuName,description,basePrice,sizes,extraIngredientPrices,category}
             )}>
-               <div className="flex gap-8 w-full " >
-                  <div>
+               <div className="flex flex-col md:flex-row gap-8 w-full p-4 md:p-0" >
+                  <div className="mx-auto">
                      <EditableImage link={image} setLink={setIamge}/>
                   </div>
 

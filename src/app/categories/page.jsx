@@ -64,43 +64,45 @@ const CategoriesPage=()=>{
       fetchCategories()
    }
     return(
-        <section className="mt-8 max-w-lg mx-auto">
+        <section className="mt-8 max-w-lg flex flex-col items-center justify-center">
             <UserTabs isAdmin={true}/>
             <form onSubmit={handleSubmit}
-            className="mt-8 flex flex-col gap-2 justify-center items-center">
-                <label className="mr-20">
+            className="mt-8 flex flex-col gap-4 justify-center items-center">
+                <label className="mx-auto">
                   {editedCategory?'Update category':'New categoy Name'}
                   {editedCategory && (
                     <> : <b>{editedCategory.name}</b></>
                   )}
                   </label>
-                <div className="flex gap-2">
-                    <input className="border rounded-lg"
+                <div className="flex flex-col md:flex-row gap-2">
+                    <input className="border rounded-lg py-2 grow"
                     type="text" 
                     value={categoryName}
                     onChange={(e)=>setCategoryName(e.target.value)}
                     />
-                    <button className="bg-blue-500 px-4 py-2 text-white rounded-lg cursor-pointer">
+                    <div className="flex gap-4 md:gap-2">
+                      <button className="bg-blue-500 px-4 py-2 text-white rounded-lg cursor-pointer">
                       {editedCategory?'Update':'Create'}
-                    </button>
-                    <button className="bg-red-400 rounded-lg px-4 py-2 text-white cursor-pointer"
-                    type="button"
-                    onClick={()=>{
-                      setEditedCategory(null)
-                      setCategoryName('')
-                    }}
-                    >Cancel</button>
+                      </button>
+                      <button className="bg-red-400 rounded-lg px-4 py-2 text-white cursor-pointer"
+                      type="button"
+                      onClick={()=>{
+                        setEditedCategory(null)
+                        setCategoryName('')
+                      }}
+                      >Cancel</button>
+                    </div>
                 </div>
             </form>
             {message && message.length>0 &&(
                 <span>{message}</span>
             )}
-            <div className="flex flex-col justify-center items-center gap-2 w-full">
+            <div className="flex flex-col justify-center items-center gap-2 w-full ">
                 <h2 className="mt-8">Edit Categories</h2>
                 {categories.length>0 && categories.map((cat)=>(
                   <div key={cat._id} className="flex gap-3 text-xl bg-gray-300 w-full p-3 rounded-lg">
                       <h1>{cat.name}</h1>
-                     <div className="flex gap-4 ml-auto">
+                     <div className="flex gap-4 mx-auto md:mx-0 md:ml-auto">
                        <button className="bg-white px-4 py-2 rounded-lg cursor-pointer
                         hover:bg-blue-400 hover:text-white"
                         type="button"

@@ -38,7 +38,7 @@ const MenuItemsPage=()=>{
                 <Right/>
               </Link>
            </div>
-           <div className="grid grid-cols-3 mt-4 gap-4">
+           <div className="grid grid-cols-1 md:grid-cols-3 p-2 mt-4 gap-4">
             {menuItems.length>0 && menuItems.map((item,index)=>(
                <Link key={index} href={'/menu-items/edit/'+item._id} className="bg-gray-300 p-4 hover:shadow-lg transition-all duration-300">
                 <div className="">

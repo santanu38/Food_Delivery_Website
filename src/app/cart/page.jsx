@@ -39,8 +39,8 @@ const CartPage=()=>{
          <div>
             <SectionHeader mainheader="Cart"/> 
          </div>
-         <div className="mt-8 flex gap-20">
-            <div className="cartpordut ">
+         <div className="mt-8 flex flex-col md:flex-row gap-20">
+            <div className="cartpordut p-4 md:p-0 ">
                 {cartProduct.length===0 && (
                   <div>No products in your shopping cart</div>
                 )}
@@ -52,7 +52,7 @@ const CartPage=()=>{
                   onRemove={removeCartProduct}
                   />
                 ))}
-                <h1 className="text-center font-semibold text-xl">Total {cartProduct.length} Products</h1>
+                <h1 className="text-center font-semibold text-xl mt-4">Total {cartProduct.length} Products</h1>
                
                 <div className="total flex justify-end-safe items-center text-lg">
                   <div className="text-gray-700 text-lg">
@@ -67,9 +67,9 @@ const CartPage=()=>{
                   </div>
                 </div>
             </div>
-            <div className="mt-8 bg-gray-300 p-4 rounded-lg max-h-screen">
+            <div className="mt-8 ml-4 mr-4 md:ml-0 md:mr-0 bg-gray-300 p-4 rounded-lg max-h-screen">
               <h2 className="text-xl font-semi-bold text-center">Checkout</h2>
-              <form className="flex flex-col w-md mt-4 gap-3">
+              <form className="flex flex-col md:w-md mt-4 gap-3">
                  <AdressInputs
                   addressprops={address}
                  />

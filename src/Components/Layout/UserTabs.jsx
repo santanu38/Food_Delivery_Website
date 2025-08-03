@@ -8,7 +8,7 @@ const UserTabs=({isAdmin})=>{
     console.log(path);
     
     return(
-         <div className="flex gap-3 tabs">
+         <div className="flex flex-col-2 gap-2 md:-3 tabs">
            <Link className={path==='/profile'?'active':''} 
            href={'/profile'}>
             Profile

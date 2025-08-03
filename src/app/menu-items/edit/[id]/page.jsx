@@ -62,8 +62,8 @@ const EditMenuPage=()=>{
                 Show All Menu Items
               </Link>
              <MenuItemForm menuItem={menuItem} onSubmit={handleSubmit}/>
-            <div className="w-1/2 max-w-lg ">
-               <div className="p-2  w-1/2 ml-auto ">
+            <div className="w-full md:w-1/2 max-w-lg ">
+               <div className="p-2  w-1/2 mx-auto md:mx-0 md:ml-auto ">
                 <DeleteButton label={'Delete Menu'} onDelete={handleDelete} bgColor={'red-400'}/>
                </div>
             </div>

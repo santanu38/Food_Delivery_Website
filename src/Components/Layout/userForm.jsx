@@ -27,16 +27,16 @@ const UserForm=({user,onSave})=>{
            if(propName==='country') setCountry(value)
        }
     return(
-        <div className="flex mt-8 gap-4">
-            <div>
+        <div className="flex flex-col md:flex-row mt-8 gap-4">
+            <div className="mx-auto">
                 <div className="">
                   <EditableImage link={image} setLink={setImage}/>
                 </div>
             </div>
-            <form className="grow flex flex-col gap-2 " onSubmit={(e)=>onSave(e,{
+            <form className=" flex flex-col gap-2 " onSubmit={(e)=>onSave(e,{
                 username:userName,phone,admin,image, streetAdress, city, country, postalCode,
             })}>
-               <div className="flex gap-6">
+               <div className="flex flex-col md:flex-row gap-6">
                  <div className="flex flex-col">
                     <label >Username</label>
                    <input className="p-2 border"
