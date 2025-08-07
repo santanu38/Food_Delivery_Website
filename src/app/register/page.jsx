@@ -6,6 +6,7 @@ import { useState } from "react"
 import { signUpSchema } from "@/schemas/signUpSchema"
 import axios from "axios"
 import { useRouter } from "next/navigation"
+import {signIn} from "next-auth/react";
 
 const Register=()=>{
    const [username,setUsername]=useState('')
@@ -81,8 +82,9 @@ const Register=()=>{
                 className="bg-blue-500 text-white p-3 cursor-pointer hover:bg-blue-700">
                 Sign Up</button>
                 <h1 className="text-center">Or</h1>
-                <button className="flex gap-3 justify-center items-center cursor-pointer border px-4 py-2  hover:bg-blue-300 hover:text-white
-                ">Sign Up with
+                <button onClick={()=>signIn('google',{ callbackUrl: "/"})}
+                className="flex gap-3 justify-center items-center cursor-pointer border px-4 py-2  hover:bg-blue-300 hover:text-white
+                ">Sign In with
                    <Image
                     src="/google.png"
                     alt="Google"
