@@ -3,9 +3,12 @@ import { cartContext } from '@/context/AppProvider';
 import Image from 'next/image';
 import { useContext, useState } from 'react';
 import MenuItemTile from './MenuItemTile';
+import { useSession } from 'next-auth/react';
 
 const MenuItems=(menuItem)=>{
-   const {name,image,description,basePrice,sizes, extraIngredientPrices}=menuItem
+  const session=useSession()
+  const {status}=session
+  const {name,image,description,basePrice,sizes, extraIngredientPrices}=menuItem
    const {addToCart}=useContext(cartContext)
 
    const [showPopup,setShowPopup]=useState(false)
@@ -13,6 +16,11 @@ const MenuItems=(menuItem)=>{
    const [selectedExtras,setSelectedExtras]=useState([])
 
    const handleAddToCartButtonClik=()=>{
+     if(status==='unauthenticated'){
+       alert('please login to add to cart')
+       return
+     }
+     
       const hasOptions=sizes.length>0 || extraIngredientPrices.length>0
       if(hasOptions && !showPopup){
         setShowPopup(true)

@@ -24,7 +24,6 @@ const MenuPage=()=>{
 
     return(
         <section className="mt-8">
-           
             {categories && categories.length>0 && categories.map((cat)=>(
                <div key={cat._id}>
                  <div>

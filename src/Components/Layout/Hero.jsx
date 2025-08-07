@@ -2,6 +2,7 @@
 import Image from "next/image"
 import React from "react"
 import Right from "../icons/Right"
+import Link from "next/link"
 
 const Hero=()=>{
    return(
@@ -17,10 +18,13 @@ const Hero=()=>{
             Pizza is the missing piece that makes every day complete,<br/> a simple yet delicious joy in life
          </p>
          <div className="flex gap-6 text-sm mt-10 text-white">
-            <button className=" flex justify-center uppercase items-center gap-2 px-4 py-2 bg-orange-700 font-bold rounded-full ">
+            <Link className=" flex justify-center uppercase items-center gap-2 px-4 py-2 bg-orange-700 font-bold rounded-full "
+            href={'/menu'}>
+             <button className="flex">
                 Order now
                 <Right/>
             </button>
+            </Link>
             <button className=" flex gap-2 font-semibold bg-gray-600 px-6 py-4 rounded-full">
                Learn more
                <Right/>

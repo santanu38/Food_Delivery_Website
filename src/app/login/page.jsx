@@ -4,6 +4,7 @@ import Link from "next/link"
 import Image from "next/image"
 import {signIn} from "next-auth/react";
 import { signInSchema } from "@/schemas/signInSchema";
+import { toast } from "sonner"
 
 
 const Login=()=>{
@@ -32,15 +33,16 @@ const Login=()=>{
          email:formData.email,
          password:formData.password
       })
-      console.log();
-      
-        if (res?.error) {
-        toast.error(res.error || "Invalid credentials");
-       return;
-        }
-
-      if (res?.ok) {
-       toast.success("Login successful!");
+      if(res?.error){
+         if(res.error==='CredentialsSignin'){
+            toast('Login Failed',{
+             description: 'Incorrect username or password',
+            })
+         }else{
+           toast('Error',{
+            description: result.error,
+           })
+         }
       }
    }
     return(

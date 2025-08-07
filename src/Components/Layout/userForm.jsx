@@ -8,7 +8,7 @@ import { useProfile } from "../UseProfile"
 
 const UserForm=({user,onSave})=>{
   
-       const [userName,setUserName]=useState(user?.username || '')
+       const [userName,setUserName]=useState(user?.username ||user?.name || '')
     //    const [email,setEmail]=useState('')
        const [image,setImage]=useState(user?.image || '')
        const [phone,setPhoneNo]=useState(user?.phone || '')
