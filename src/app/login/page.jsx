@@ -5,6 +5,8 @@ import Image from "next/image"
 import {signIn} from "next-auth/react";
 import { signInSchema } from "@/schemas/signInSchema";
 import { toast } from "sonner"
+import { useRouter } from "next/navigation";
+
 
 
 const Login=()=>{
@@ -12,6 +14,7 @@ const Login=()=>{
      const [password,setPassword]=useState('')
      const [emailError,setEmailError]=useState('')
      const [passwordError,setPasswordError]=useState('')
+     const router=useRouter()
 
      const handleSubmit=async(e)=>{
         e.preventDefault()
@@ -29,7 +32,7 @@ const Login=()=>{
             return
          }
         const res=await signIn('credentials',{
-         callbackUrl: "/",
+         redirect:false ,
          email:formData.email,
          password:formData.password
       })
@@ -43,6 +46,8 @@ const Login=()=>{
             description: result.error,
            })
          }
+      }else{
+         router.push("/")
       }
    }
     return(
