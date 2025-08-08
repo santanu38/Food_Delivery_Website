@@ -25,7 +25,7 @@ export default function RootLayout({ children }) {
         <AppProvider>
           <body>
            <main className="max-w-8xl mx-auto ">
-             <Toaster />
+             <Toaster richColors position="top-right-center"  />
             <Header/>
             {children}
            </main>
